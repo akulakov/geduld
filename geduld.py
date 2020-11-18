@@ -484,7 +484,6 @@ class Board:
         Item(self, Blocks.platform, 'mobile platform', specials[1], id=ID.platform1)
         g = Guard(self, specials[1], id=ID.guard1)
         self.guards = [g]
-        Item(self, Blocks.grill, 'grill', specials[2], id=ID.grill1)
         p = Player(self, specials[3], id=ID.player)
         BlockingItem(self, rock, '', specials[4], id=ID.stone3, color=gray_col())
         return p
@@ -688,7 +687,7 @@ class Board:
             return objects.get(x) or x
         return any(get_obj(x).type==type for x in self.get_all_obj(loc))
 
-    def draw(self):
+    def draw(self, editor=False):
         blt.clear()
         blt.color("white")
         visible = set()
@@ -697,14 +696,14 @@ class Board:
         def is_blocked(x,y):
             return self.is_blocked(Loc(x,y))
 
-        x,y = obj_by_attr.player.loc
-
-        fov.field_of_view(x, y, WIDTH, HEIGHT, 5, visit, is_blocked)
+        if not editor:
+            x,y = obj_by_attr.player.loc
+            fov.field_of_view(x, y, WIDTH, HEIGHT, 5, visit, is_blocked)
 
         for y, row in enumerate(self.B):
             for x, cell in enumerate(row):
                 is_seen = (x,y) in self.seen
-                is_visible_now = (x,y) in visible
+                is_visible_now = editor or (x,y) in visible
                 if is_seen or is_visible_now:
                     # tricky bug: if an 'invisible' item put somewhere, then a being moves on top of it, it's drawn, but
                     # when it's moved out, the invisible item is drawn, but being an empty string, it doesn't draw over the
@@ -801,7 +800,7 @@ def chk_oob(loc, y=0, x=0):
 
 def chk_b_oob(loc, y=0, x=0):
     h = len(boards)
-    w = len(boards[1])
+    w = len(boards[0])
     newx, newy = loc.x+x, loc.y+y
     return 0 <= newy <= h-1 and 0 <= newx <= w-1 and boards[newy][newx]
 
@@ -1236,8 +1235,9 @@ class Being(BeingItemMixin):
                 self.inv[x] += cont.inv[x]
             cont.inv[x] = 0
             # pdb(objects, x)
-            lst.append(str(objects[x]))
-        status('You found {}'.format(', '.join(lst)))
+            lst.append(str(objects[x].name))
+        if lst:
+            status('You found {}'.format(', '.join(lst)))
         if not items:
             status(f'{cont.name} is empty')
 
@@ -2083,7 +2083,7 @@ def editor(_map):
                 fp.write(blank*78 + '\n')
     B.load_map(_map, 1)
 
-    B.draw()
+    B.draw(editor=1)
 
     while 1:
         k = parsekey(blt.read())
@@ -2236,7 +2236,7 @@ def editor(_map):
                     fp.write('\n')
             written=1
 
-        B.draw()
+        B.draw(editor=1)
         blt.clear_area(loc.x,loc.y,1,1)
         # Windows.win.addstr(loc.y, loc.x, Blocks.circle3)
         Windows.win.addstr(loc.y, loc.x, Blocks.cursor, 'blue')
