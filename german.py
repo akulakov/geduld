@@ -2988,13 +2988,19 @@ lst = [l.split('–') for l in lst]
 for l in lst:
     if len(l)<2:
         print(l)
-lst = [(a.strip(),b.strip()) for a,b in lst]
-en_to_gr = dict(lst)
-en_nouns = en_to_gr.keys()
+x = 1
+def decr():
+    global x
+    x -= 1/len(lst)
+    return x
+lst = [(a.strip(), b.strip(), decr()) for a,b in lst]
+
+en_to_gr = dict((a,b) for a,b,_ in lst)
+en_nouns = list(en_to_gr.keys())
 gr_nouns = en_to_gr.values()
 
 from collections import defaultdict
-from random import choice, randint
+from random import choice, randint, random
 
 class Question:
     seen = defaultdict(int)
@@ -3002,9 +3008,11 @@ class Question:
     size = len(lst)
 
     def generate(self):
-        for _ in range(10):
-            tr, w = choice(lst)
-            if self.seen[w]==0 or total >= size:
+        for _ in range(100):
+            tr, w, x = choice(lst)
+            if random()>x**2:
+                continue
+            if self.seen[w]==0 or self.total >= self.size:
                 break
         o2,o3 = choice(en_nouns), choice(en_nouns)
         i = randint(0,2)
@@ -3018,4 +3026,9 @@ class Question:
             return (i,w,o2,o3,tr)
 
 if __name__ == "__main__":
-    print(Question().generate())
+    for _ in range(30):
+        tup = Question().generate()
+        print(tup)
+        w = tup[1]
+        print(list(gr_nouns).index(w))
+
