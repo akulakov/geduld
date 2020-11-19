@@ -1,7 +1,6 @@
 #!/usr/bin/env python3
 """
 """
-import fov
 from bearlibterminal import terminal as blt
 import os
 import sys
@@ -12,6 +11,9 @@ from collections import defaultdict
 from textwrap import wrap
 import string
 import shelve
+
+import fov
+from german import Question
 
 oprint = print
 
@@ -779,7 +781,7 @@ class Board:
             blt.clear_area(X, Y+y+1, w+3, 1)
             Windows.win.addstr(Y+y+1, X, ' ' + ln)
         Windows.refresh()
-        blt.read()
+        return parsekey(blt.read())
 
 def gray_col():
     c = hex(randrange(120,150))[2:]
@@ -1063,11 +1065,15 @@ class Being(BeingItemMixin):
             return True, True
 
         # TODO This is a little messy, doors are by type and keys are by ID
-        if new and B.found_type_at(Type.door1, new) and self.has(ID.key1):
+        if new and B.found_type_at(Type.door1, new):
+            correct_i, question = Question().render()
+            k = B.display([question])
             d = B[new]
-            B.remove(B[new])    # TODO will not work if something is on top of door
-            self.remove1(ID.key1)
-            status('You open the door with your key')
+            if k==correct_i:
+                B.remove(B[new])    # TODO will not work if something is on top of door
+                status('You open the door')
+            else:
+                status('You fail miserably, maybe try again')
             return None, None
 
         if new and B.is_blocked(new):

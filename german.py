@@ -3007,6 +3007,15 @@ class Question:
     total = 0
     size = len(lst)
 
+    def render(self):
+        i,w,o1,o2,o3 = self.generate()
+        return str(i), (
+            ' {} -\n'
+            ' 1) {}\n'
+            ' 2) {}\n'
+            ' 3) {}\n'
+        ).format(w,o1,o2,o3)
+
     def generate(self):
         for _ in range(100):
             tr, w, x = choice(lst)
@@ -3015,18 +3024,19 @@ class Question:
             if self.seen[w]==0 or self.total >= self.size:
                 break
         o2,o3 = choice(en_nouns), choice(en_nouns)
-        i = randint(0,2)
+        i = randint(1,3)
         self.total += 1
         self.seen[w] += 1
-        if i==0:
+        if i==1:
             return (i,w,tr,o2,o3)
-        elif i==1:
+        elif i==2:
             return (i,w,o2,tr,o3)
         else:
             return (i,w,o2,o3,tr)
 
 if __name__ == "__main__":
-    for _ in range(30):
+    print(Question().render()[1])
+    for _ in range(1):
         tup = Question().generate()
         print(tup)
         w = tup[1]
