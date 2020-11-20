@@ -13,7 +13,8 @@ import string
 import shelve
 
 import fov
-from german import Question
+# from german import Question
+from italian import Question
 
 oprint = print
 
@@ -1267,7 +1268,12 @@ class Being(BeingItemMixin):
             return getattr(ID, id) in B.get_ids(locs)
 
         if cont:
-            self.loot(B, cont)
+            correct_i, question = Question().render()
+            k = B.display([question])
+            if k==correct_i:
+                self.loot(B, cont)
+            else:
+                status(f'You fail to open {cont}')
 
         elif is_near('red_door') and self.has(ID.red_card):
             B.remove(obj.red_door)
@@ -1695,8 +1701,8 @@ def main(load_game):
     objects[ID.key2] = key2
 
     B = b1 = Board(Loc(0,MAIN_Y), 1)
-
     player = b1.board_1()
+
     if DBG:
         player.health = 100
 
