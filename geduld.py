@@ -491,6 +491,9 @@ class Board:
         BlockingItem(self, rock, '', specials[4], id=ID.stone3, color=gray_col())
         return p
 
+    def board_2(self):
+        containers, crates, doors, specials = self.load_map(self._map)
+
     # -----------------------------------------------------------------------------------------------
     def line(self, a, b):
         for x in range(a.x,b.x+1):
@@ -1702,12 +1705,14 @@ def main(load_game):
 
     B = b1 = Board(Loc(0,MAIN_Y), 1)
     player = b1.board_1()
+    b2 = Board(Loc(1,MAIN_Y), 2)
+    b2.board_2()
 
     if DBG:
         player.health = 100
 
     boards[:] = (
-         [b1,None,None,None, None,None,None,None, None,None, None, None],
+         [b1,b2,None,None, None,None,None,None, None,None, None, None],
     )
     B.draw()
 
