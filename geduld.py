@@ -1299,6 +1299,7 @@ class Being(BeingItemMixin):
                 k = B.display(question.split('\n'))
                 if k==correct_i:
                     self.loot(B, cont)
+                    cont.locked = False
                 else:
                     status(f'You fail to open {cont}')
 
