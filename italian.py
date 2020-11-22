@@ -1030,7 +1030,7 @@ class Question:
             ' {} -\n'
             ' 1) {}\n'
             ' 2) {}\n'
-            ' 3) {}\n'
+            ' 3) {}'
         ).format(w,o1,o2,o3)
 
     def generate(self):

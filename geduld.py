@@ -493,6 +493,14 @@ class Board:
 
     def board_2(self):
         containers, crates, doors, specials = self.load_map(self._map)
+    def board_3(self):
+        containers, crates, doors, specials = self.load_map(self._map)
+    def board_4(self):
+        containers, crates, doors, specials = self.load_map(self._map)
+    def board_5(self):
+        containers, crates, doors, specials = self.load_map(self._map)
+    def board_6(self):
+        containers, crates, doors, specials = self.load_map(self._map)
 
     # -----------------------------------------------------------------------------------------------
     def line(self, a, b):
@@ -783,7 +791,11 @@ class Board:
         X,Y = 5, 2
         for y, ln in enumerate(txt):
             blt.clear_area(X, Y+y+1, w+3, 1)
+            debug('--')
+            debug(X, Y+y+1, w+3, 1)
             Windows.win.addstr(Y+y+1, X, ' ' + ln)
+            debug(Y+y+1, X, ' ' + ln)
+            debug('--')
         Windows.refresh()
         return parsekey(blt.read())
 
@@ -875,9 +887,13 @@ class BeingItemMixin:
 
 class Item(BeingItemMixin):
     board_map = None
+    type = None
 
     def __init__(self, B, char, name, loc=None, put=True, id=None, type=None, color=None):
-        self.char, self.name, self.loc, self.id, self.type, self.color = char, name, loc, id, type, color
+        self.char, self.name, self.loc, self.id, self.color = char, name, loc, id, color
+
+        if type:
+            self.type = type
 
         if B:
             self.board_map = B._map
@@ -899,6 +915,10 @@ class Item(BeingItemMixin):
             self.loc = new
             self.B.put(self)
 
+class ContainerItem(Item):
+    locked = True
+    type = Type.container
+
 class BlockingItem(Item):
     def __init__(self, *args, **kwargs):
         super().__init__(*args, **kwargs)
@@ -910,17 +930,17 @@ class TriggerEventLocation(Item):
         super().__init__(B, '', '', loc, id=id, type=Type.event_trigger)
         self.evt = evt
 
-class Locker(Item):
+class Locker(ContainerItem):
     def __init__(self, B, loc):
-        super().__init__(B, Blocks.locker, 'locker', loc, id=ID.locker, type=Type.container)
+        super().__init__(B, Blocks.locker, 'locker', loc, id=ID.locker)
         if random()>.6:
             self.add1(ID.coin)
         elif random()>.6:
             self.add1(ID.grn_heart)
 
-class Cupboard(Item):
+class Cupboard(ContainerItem):
     def __init__(self, B, loc):
-        super().__init__(B, Blocks.cupboard, 'cupboard', loc, type=Type.container)
+        super().__init__(B, Blocks.cupboard, 'cupboard', loc)
         # ugly: this doesn't work in the map editor because `objects` dict doesn't have these items
         try:
             if random()>.5:
@@ -1070,8 +1090,9 @@ class Being(BeingItemMixin):
 
         # TODO This is a little messy, doors are by type and keys are by ID
         if new and B.found_type_at(Type.door1, new):
+            B.draw()
             correct_i, question = Question().render()
-            k = B.display([question])
+            k = B.display(question.split('\n'))
             d = B[new]
             if k==correct_i:
                 B.remove(B[new])    # TODO will not work if something is on top of door
@@ -1247,7 +1268,7 @@ class Being(BeingItemMixin):
             # pdb(objects, x)
             lst.append(str(objects[x].name))
         if lst:
-            status('You found {}'.format(', '.join(lst)))
+            status('You found a {}'.format(', '.join(lst)))
         if not items:
             status(f'{cont.name} is empty')
 
@@ -1271,12 +1292,15 @@ class Being(BeingItemMixin):
             return getattr(ID, id) in B.get_ids(locs)
 
         if cont:
-            correct_i, question = Question().render()
-            k = B.display([question])
-            if k==correct_i:
+            if not cont.locked:
                 self.loot(B, cont)
             else:
-                status(f'You fail to open {cont}')
+                correct_i, question = Question().render()
+                k = B.display(question.split('\n'))
+                if k==correct_i:
+                    self.loot(B, cont)
+                else:
+                    status(f'You fail to open {cont}')
 
         elif is_near('red_door') and self.has(ID.red_card):
             B.remove(obj.red_door)
@@ -1708,11 +1732,23 @@ def main(load_game):
     b2 = Board(Loc(1,MAIN_Y), 2)
     b2.board_2()
 
+    b3 = Board(Loc(2,MAIN_Y), 3)
+    b3.board_3()
+
+    b4 = Board(Loc(3,MAIN_Y), 4)
+    b4.board_4()
+
+    b5 = Board(Loc(4,MAIN_Y), 5)
+    b5.board_5()
+
+    b6 = Board(Loc(5,MAIN_Y), 6)
+    b6.board_6()
+
     if DBG:
         player.health = 100
 
     boards[:] = (
-         [b1,b2,None,None, None,None,None,None, None,None, None, None],
+         [b1,b2,b3,b4,b5,b6,None,None,None, None,None, None, None],
     )
     B.draw()
 
@@ -2114,10 +2150,10 @@ def editor(_map):
             m = dict(h=(0,-1), l=(0,1), j=(1,0), k=(-1,0), y=(-1,-1), u=(-1,1), b=(1,-1), n=(1,1), H=(0,-1), L=(0,1))[k]
 
             for _ in range(n):
-                if chk_oob(loc.mod(*m)):
-                    loc = loc.mod(*m)
                 if brush:
                     B.B[loc.y][loc.x] = [brush]
+                if chk_oob(loc.mod(*m)):
+                    loc = loc.mod(*m)
 
         elif k == ' ':
             brush = None
