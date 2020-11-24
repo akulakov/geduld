@@ -312,80 +312,10 @@ class ID:
     stone2 = 82
     stone3 = 83
 
-    guard1 = 100
-    technician1 = 101
+    eeklo = 100
+    eeklo2 = 101
     player = 102
-    soldier1 = 103
-    robobunny1 = 104
-    shopkeeper1 = 105
-    max_ = 106
-    anthony = 107
-    julien = 108
-    soldier2 = 109
-    guard2 = 110
-    wally = 111
-    chamonix = 112
-    agen = 113
-    agen2 = 114
-    clermont_ferrand = 115
-    brenne = 116
-    trier = 117
-    morvan = 118
-    morvan2 = 119
-    montbard = 120
-    astronomer = 121
-    groboclone1 = 122
-    locksmith = 123
-    maurice = 124
-    clermont_ferrand2 = 125
-    clermont_ferrand3 = 126
-    aubigny = 127
-    olivet = 128
-    olivet2 = 129
-    julien2 = 130
-    wally = 131
-    wally2 = 132
-    wally3 = 133
-    aubigny2 = 134
-    buzancais = 135
-    ruffec = 136
-    baldino = 137
-    fenioux = 138
-    salesman = 139
-    baldino2 = 140
-    baldino3 = 141
-    alarm_tech = 142
-    elf = 143
-    sever = 144
-    dynofly = 145
-    tartas = 146
-    candanchu = 147
-    graus = 148
-    painter = 149
-    soldier3 = 150
-    soldier4 = 151
-    soldier5 = 152
-    zoe = 153
-    funfrock = 154
-    funfrock2 = 155
-    fenioux2 = 156
-    olivet3 = 157
-    julien3 = 158
-    clone1 = 159
-    tartas2 = 160
 
-    max1 = 200
-    max2 = 201
-    trick_guard = 202
-    talk_to_brenne = 203
-    water_supply = 204
-    mstone2_exit = 205
-    zoe_taken = 206
-    zoe_taken2 = 207
-    safe_note = 208
-    lake_ice_breaking = 209
-
-    legend1 = 400
     fall = 401  # move that falls through to the map below
 
 
@@ -401,7 +331,19 @@ descr_by_id.update(
 )
 
 conversations = {
-    ID.robobunny1: ['...'],
+    ID.eeklo: ["I can tell you about this village and the inhabitants, but I'm a bit short on cash right now..",
+               "Go on..",
+               "For just 5 Kashes I will share a lot of interesting details that any traveler would find it to his advantage to know",
+               "Give 5 Kashes to Eeklo"
+              ],
+
+    ID.eeklo2: ["There's not much left of the village as you can see.. You might search around the ruins for useful items that might have been left behind, though all of them surely were picked off by animals and birds and.. well, by me I guess.",
+                "Tell me about the inhabitants..",
+                "I've never trusted Ath. Keep walk ahead for a couple of stadia and you will see and talk to him, but you won't learn much, for he is a shifty one. I've never been able to learn much, and I can be pretty persistent! It's only natural that we want to know a bit more about ex-Wavrians, with the reputation of the place!",
+                "That's all you can tell me? It's not much.",
+                "Five kashes is also not much!"
+               ],
+
 }
 
 def mkcell():
@@ -485,16 +427,20 @@ class Board:
         containers, crates, doors, specials = self.load_map(self._map)
         containers[3].add1(ID.key1)
         Item(self, Blocks.platform, 'mobile platform', specials[1], id=ID.platform1)
-        g = Guard(self, specials[1], id=ID.guard1)
-        self.guards = [g]
+        # g = Guard(self, specials[1], id=ID.guard1)
+        # self.guards = [g]
+        # Eeklo(self, specials[1])
         p = Player(self, specials[3], id=ID.player)
         BlockingItem(self, rock, '', specials[4], id=ID.stone3, color=gray_col())
         return p
 
     def board_2(self):
         containers, crates, doors, specials = self.load_map(self._map)
+
     def board_3(self):
         containers, crates, doors, specials = self.load_map(self._map)
+        Eeklo(self, specials[1])
+
     def board_4(self):
         containers, crates, doors, specials = self.load_map(self._map)
     def board_5(self):
@@ -957,20 +903,23 @@ class Being(BeingItemMixin):
     hostile = 0
     type = None
     char = None
+    id = None
+    kashes = 0
 
     def __init__(self, B, loc=None, put=True, id=None, name=None, state=0, hostile=False, health=None, char='?', color=None):
-        self.id, self.loc, self.name, self.state, self.hostile, self.color  = id, loc, name, state, hostile, color
+        self.loc, self.name, self.state, self.hostile, self.color  = loc, name, state, hostile, color
         if B:
             self.board_map = B._map
+        if id:
+            self.id = id
 
         self.health = self.health or health or 5
         self.char = self.char or char
         self.inv = defaultdict(int)
-        self.kashes = 0
         if DBG:
             self.kashes = 54
-        if id:
-            objects[id] = self
+        if self.id:
+            objects[self.id] = self
         if put:
             B.put(self)
 
@@ -1303,6 +1252,9 @@ class Being(BeingItemMixin):
                 else:
                     status(f'You fail to open {cont}')
 
+        elif is_near('eeklo'):
+            self.talk_to_eeklo()
+
         elif is_near('red_door') and self.has(ID.red_card):
             B.remove(obj.red_door)
 
@@ -1316,6 +1268,19 @@ class Being(BeingItemMixin):
             x = B[loc] # TODO won't work if something is in the platform tile
             if x and getattr(x, 'id', None)==ID.platform_top1:
                 PlatformEvent2(B).go()
+
+    def talk_to_eeklo(self):
+        eeklo = obj_by_attr.eeklo
+        debug(eeklo.state)
+        if eeklo.state == 0:
+            y = self.talk(eeklo, yesno=1)
+            if y:
+                if self.kashes>=5:
+                    eeklo.state = 1
+                    self.kashes -= 5
+        if eeklo.state == 1:
+            self.talk(eeklo, ID.eeklo2)
+
 
     def talk_to_julien(self):
         obj = obj_by_attr
@@ -1588,6 +1553,7 @@ class Player(Being):
     health = 10
     is_player = 1
     stance = Stance.sneaky
+    kashes = 10
     name = 'Player'
 
 class Guard(Being):
@@ -1612,6 +1578,10 @@ class ShopKeeper(Being):
 
 class Grobo(Being):
     char = 'elephant'
+
+class Eeklo(Being):
+    char = '\u001e'
+    id = ID.eeklo
 
 
 class Win1:

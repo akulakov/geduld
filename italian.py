@@ -51,7 +51,7 @@ un	an
 ogni	each
 dire	tell
 fa	does
-set	set
+set (noun)	set
 tre	three
 desiderare	want
 aria	air
@@ -91,7 +91,7 @@ immagine	picture
 provare	try
 noi	us
 di nuovo	again
-animale	animal
+1 animale	animal
 punto	point
 madre	mother
 mondo	world
@@ -103,7 +103,7 @@ padre	father
 qualsiasi	any
 nuovo	new
 lavoro	work
-parte	part
+1 parte	part
 prendere	take
 ottenere	get
 posto	place
@@ -121,7 +121,7 @@ anno	year
 spettacolo	show
 ogni	every
 buono	good
-me	me
+1 me	me
 dare	give
 il nostro	our
 sotto	under
@@ -129,7 +129,7 @@ nome	name
 molto	very
 attraverso	through
 solo	just
-forma	form
+1 forma	form
 frase	sentence
 grande	great
 pensare	think
@@ -138,8 +138,8 @@ aiutare	help
 basso	low
 linea	line
 differire	differ
-turno	turn
-causa	cause
+1 turno	turn
+1 causa	cause
 molto	much
 dire	mean
 prima	before
@@ -154,10 +154,10 @@ tutto	all
 ci	there
 quando	when
 su	up
-uso	use
+1 uso	use
 il tuo	your
 modo	way
-circa	about
+circa	approximately
 molti	many
 allora	then
 loro	them
@@ -181,13 +181,13 @@ potuto	could
 andare	go
 venire	come
 ha fatto	did
-numero	number
+1 numero	number
 suono	sound
-no	no
+1 no	no
 più	most
-persone	people
+1 persone	people
 il mio	my
-oltre	over
+oltre	over (more than)
 sapere	know
 acqua	water
 di	than
@@ -201,16 +201,16 @@ stato	been
 ora	now
 trovare	find
 testa	head
-stare in piedi	stand
+1 stare in piedi	stand
 proprio	own
-pagina	page
+1 pagina	page
 dovrebbe	should
 paese	country
 fondare	found
 risposta	answer
 scuola	school
 crescere	grow
-studio	study
+1 studio	study
 ancora	still
 imparare	learn
 impianto	plant
@@ -226,44 +226,41 @@ mai	never
 ultimo	last
 lasciare	let
 pensiero	thought
-città	city
+1 città	city
 albero	tree
 attraversare	cross
 fattoria	farm
-difficile	hard
+1 difficile	hard
 inizio	start
 forza	might
-storia	story
+1 storia	story
 sega	saw
 lontano	far
 mare	sea
 disegnare	draw
 sinistra	left
 tardi	late
-run	run
-non	don’t
+1 non	don’t
 mentre	while
 stampa	press
-close	close
 notte	night
-reale	real
+1 reale	real
 vita	life
 pochi	few
-nord	north
+1 nord	north
 libro	book
 portare	carry
 ha preso	took
-scienza	science
+1 scienza	science
 mangiare	eat
 camera	room
 amico	friend
 ha iniziato	began
-idea	idea
+1 idea	idea
 pesce	fish
 montagna	mountain
-stop	stop
 una volta	once
-base	base
+1 base	base
 sentire	hear
 cavallo	horse
 taglio	cut
@@ -285,18 +282,18 @@ camminare	walk
 esempio	example
 alleviare	ease
 carta	paper
-gruppo	group
+1 gruppo	group
 sempre	always
-musica	music
+1 musica	music
 quelli	those
 entrambi	both
 marchio	mark
 spesso	often
-lettera	letter
+1 lettera	letter
 fino a quando	until
 miglio	mile
 fiume	river
-auto	car
+1 auto	car
 piedi	feet
 cura	care
 secondo	second
@@ -312,41 +309,38 @@ rosso	red
 elenco	list
 anche se	though
 sentire	feel
-Discussioni	talk
+1 Discussioni	talk
 uccello	bird
 presto	soon
 corpo	body
 cane	dog
-famiglia	family
+1 famiglia	family
 diretto	direct
-posa	pose
+1 posa	pose
 lasciare	leave
 canzone	song
 misurare	measure
 porta	door
-prodotto	product
+1 prodotto	product
 nero	black
 breve	short
-numerale	numeral
-classe	class
+1 numerale	numeral
+1 classe	class
 vento	wind
 domanda	question
 accadere	happen
 integrale	complete
 nave	ship
-area	area
 metà	half
-rock	rock
 ordine	order
 fuoco	fire
 sud	south
-problema	problem
+1 problema	problem
 pezzo	piece
 ha detto	told
 sapeva	knew
 passare	pass
 da	since
-top	top
 tutto	whole
 re	king
 strada	street
@@ -360,20 +354,18 @@ completo	full
 vigore	force
 blu	blue
 oggetto	object
-decidere	decide
+1 decidere	decide
 superficie	surface
 profondità	deep
 luna	moon
 isola	island
 piede	foot
-sistema	system
+1 sistema	system
 occupato	busy
-test	test
-record	record
 barca	boat
 comune	common
 oro	gold
-possibile	possible
+1 possibile	possible
 piano	plane
 vece	stead
 asciutto	dry
@@ -384,7 +376,7 @@ fa	ago
 corse	ran
 controllare	check
 gioco	game
-forma	shape
+1 forma	shape
 uguagliare	equate
 caldo	hot
 perdere	miss
@@ -403,27 +395,25 @@ tra	among
 unità	unit
 potenza	power
 città	town
-fine	fine
 certo	certain
 volare	fly
 cadere	fall
 portare	lead
 grido	cry
 scuro	dark
-macchina	machine
-nota	note
+1 macchina	machine
+1 nota	note
 aspettare	wait
 piano	plan
-figura	figure
+1 figura	figure
 stella	star
 scatola	box
 sostantivo	noun
 campo	field
-resto	rest
-corretto	correct
+1 resto	rest
+1 corretto	correct
 in grado di	able
 libbra	pound
-done	done
 bellezza	beauty
 unità	drive
 sorgeva	stood
@@ -431,18 +421,17 @@ contenere	contain
 frontale	front
 insegnare	teach
 settimana	week
-finale	final
+1 finale	final
 ha dato	gave
 verde	green
-oh	oh
 veloce	quick
 sviluppare	develop
-oceano	ocean
+1 oceano	ocean
 caldo	warm
 gratuito	free
-minuto	minute
+1 minuto	minute
 forte	strong
-speciale	special
+1 speciale	special
 mente	mind
 dietro	behind
 chiaro	clear
@@ -464,10 +453,10 @@ presto	early
 tenere	hold
 ovest	west
 terra	ground
-interesse	interest
+1 interesse	interest
 raggiungere	reach
 veloce	fast
-verbo	verb
+1 verbo	verb
 cantare	sing
 ascoltare	listen
 sei	six
@@ -487,12 +476,12 @@ modello	pattern
 lento	slow
 centro	center
 amore	love
-persona	person
+1 persona	person
 soldi	money
 servire	serve
 apparire	appear
 strada	road
-mappa	map
+1 mappa	map
 pioggia	rain
 regola	rule
 governare	govern
@@ -516,42 +505,39 @@ contare	count
 piazza	square
 motivo	reason
 lunghezza	length
-rappresentare	represent
-arte	art
+1 rappresentare	represent
+1 arte	art
 soggetto	subject
-regione	region
+1 regione	region
 dimensione	size
-variare	vary
+1 variare	vary
 risolvere	settle
 parlare	speak
 peso	weight
-generale	general
+1 generale	general
 ghiaccio	ice
 materia	matter
 cerchio	circle
 coppia	pair
 includere	include
-divide	divide
-sillaba	syllable
-feltro	felt
-grande	grand
+1 sillaba	syllable
+1 grande	grand
 palla	ball
 ancora	yet
 onda	wave
 cadere	drop
 cuore	heart
-am	am
-presente	present
+1 presente	present
 pesante	heavy
-danza	dance
-motore	engine
-posizione	position
+1 danza	dance
+1 motore	engine
+1 posizione	position
 braccio	arm
 ampio	wide
 vela	sail
-materiale	material
+1 materiale	material
 frazione	fraction
-foresta	forest
+1 foresta	forest
 sedersi	sit
 gara	race
 finestra	window
@@ -562,19 +548,18 @@ sonno	sleep
 dimostrare	prove
 solitario	lone
 gamba	leg
-esercizio	exercise
+1 esercizio	exercise
 muro	wall
 prendere	catch
-monte	mount
+1 monte	mount
 desiderio	wish
 cielo	sky
 pensione	board
 gioia	joy
 inverno	winter
-sat	sat
 scritto	written
 selvaggio	wild
-strumento	instrument
+1 strumento	instrument
 tenere	kept
 vetro	glass
 erba	grass
@@ -583,14 +568,13 @@ lavoro	job
 bordo	edge
 segno	sign
 visita	visit
-passato	past
+1 passato	past
 morbido	soft
 divertimento	fun
 luminoso	bright
-gas	gas
 tempo	weather
 mese	month
-milione	million
+1 milione	million
 sopportare	bear
 finitura	finish
 felice	happy
@@ -598,20 +582,18 @@ speranza	hope
 fiore	flower
 vestire	clothe
 strano	strange
-gone	gone
-commercio	trade
-melodia	melody
+1 commercio	trade
+1 melodia	melody
 viaggio	trip
-ufficio	office
-ricevere	receive
+1 ufficio	office
+1 ricevere	receive
 fila	row
 bocca	mouth
 esatto	exact
-simbolo	symbol
+1 simbolo	symbol
 morire	die
 meno	least
 difficoltà	trouble
-shout	shout
 tranne	except
 ha scritto	wrote
 seme	seed
@@ -619,7 +601,7 @@ tono	tone
 aderire	join
 suggerire	suggest
 pulito	clean
-pausa	break
+1 pausa	break
 signora	lady
 cantiere	yard
 salire	rise
@@ -629,11 +611,9 @@ olio	oil
 sangue	blood
 toccare	touch
 è cresciuto	grew
-cent	cent
 mescolare	mix
-team	team
 filo	wire
-costo	cost
+1 costo	cost
 perso	lost
 marrone	brown
 indossare	wear
@@ -659,8 +639,8 @@ mezzo	middle
 uccidere	kill
 figlio	son
 lago	lake
-momento	moment
-scala	scale
+1 momento	moment
+1 scala	scale
 forte	loud
 primavera	spring
 osservare	observe
@@ -670,30 +650,29 @@ consonante	consonant
 nazione	nation
 dizionario	dictionary
 latte	milk
-velocità	speed
-metodo	method
-organo	organ
+1 velocità	speed
+1 metodo	method
+1 organo	organ
 pagare	pay
 età	age
 sezione	section
 vestito	dress
 nube	cloud
-sorpresa	surprise
+1 sorpresa	surprise
 tranquillo	quiet
 pietra	stone
 piccolo	tiny
 salita	climb
 fresco	cool
-design	design
 povero	poor
-lotto	lot
-esperimento	experiment
+1 lotto	lot
+1 esperimento	experiment
 fondo	bottom
 chiave	key
 ferro	iron
-singolo	single
+1 singolo	single
 bastone	stick
-appartamento	flat
+1 appartamento	flat
 venti	twenty
 pelle	skin
 sorriso	smile
@@ -708,11 +687,11 @@ radice	root
 acquistare	buy
 aumentare	raise
 risolvere	solve
-metallo	metal
+1 metallo	metal
 se	whether
 spingere	push
 sette	seven
-paragrafo	paragraph
+1 paragrafo	paragraph
 terzo	third
 deve	shall
 tenuto	held
@@ -721,36 +700,35 @@ descrivere	describe
 cuoco	cook
 piano	floor
 o	either
-risultato	result
+1 risultato	result
 bruciare	burn
 collina	hill
-sicuro	safe
+1 sicuro	safe
 gatto	cat
 secolo	century
 considerare	consider
 tipo	type
 legge	law
-bit	bit
-costa	coast
-copia	copy
+1 costa	coast
+1 copia	copy
 frase	phrase
 silenzioso	silent
 alto	tall
 sabbia	sand
 suolo	soil
 rotolo	roll
-temperatura	temperature
+1 temperatura	temperature
 dito	finger
-industria	industry
+1 industria	industry
 valore	value
 lotta	fight
 bugia	lie
 battere	beat
 eccitare	excite
-naturale	natural
+1 naturale	natural
 vista	view
-senso	sense
-capitale	capital
+1 senso	sense
+1 capitale	capital
 non sarà	won’t
 sedia	chair
 pericolo	danger
@@ -758,20 +736,20 @@ frutta	fruit
 ricco	rich
 spesso	thick
 soldato	soldier
-processo	process
-operare	operate
-pratica	practice
-separato	separate
+1 processo	process
+1 operare	operate
+1 pratica	practice
+1 separato	separate
 difficile	difficult
 medico	doctor
 per favore	please
 proteggere	protect
 mezzogiorno	noon
 raccolto	crop
-moderno	modern
-elemento	element
+1 moderno	modern
+1 elemento	element
 colpire	hit
-studente	student
+1 studente	student
 angolo	corner
 partito	party
 fornitura	supply
@@ -781,30 +759,29 @@ anello	ring
 carattere	character
 insetto	insect
 catturato	caught
-periodo	period
-indicare	indicate
-radio	radio
+1 periodo	period
+1 indicare	indicate
 raggio	spoke
-atomo	atom
+1 atomo	atom
 umano	human
-storia	history
-effetto	effect
-elettrico	electric
+1 storia	history
+1 effetto	effect
+1 elettrico	electric
 aspettare	expect
 osso	bone
 ferrovia	rail
-immaginare	imagine
+1 immaginare	imagine
 fornire	provide
 concordare	agree
 così	thus
 dolce	gentle
 donna	woman
-capitano	captain
+1 capitano	captain
 indovinare	guess
-necessario	necessary
+1 necessario	necessary
 tagliente	sharp
 ala	wing
-creare	create
+1 creare	create
 prossimo	neighbor
 lavaggio	wash
 pipistrello	bat
@@ -813,23 +790,22 @@ folla	crowd
 mais	corn
 confrontare	compare
 poesia	poem
-stringa	string
+1 stringa	string
 campana	bell
 dipendere	depend
 carne	meat
 strofinare	rub
 tubo	tube
-famoso	famous
-dollaro	dollar
+1 famoso	famous
 ruscello	stream
 paura	fear
 vista	sight
 sottile	thin
-triangolo	triangle
+1 triangolo	triangle
 pianeta	planet
 fretta	hurry
 capo	chief
-colonia	colony
+1 colonia	colony
 orologio	clock
 miniera	mine
 cravatta	tie
@@ -839,167 +815,162 @@ fresco	fresh
 ricerca	search
 inviare	send
 giallo	yellow
-pistola	gun
+1 pistola	gun
 consentire	allow
 stampa	print
 morto	dead
-spot	spot
-deserto	desert
+1 deserto	desert
 tuta	suit
-corrente	current
+1 corrente	current
 ascensore	lift
-rosa	rose
-arrivare	arrive
-master	master
+1 rosa	rose
+1 arrivare	arrive
+1 master	master
 pista	track
 genitore	parent
 riva	shore
-divisione	division
+1 divisione	division
 foglio	sheet
-sostanza	substance
-favorire	favor
+1 sostanza	substance
+1 favorire	favor
 collegare	connect
-Messaggio	post
+1 Messaggio	post
 spendere	spend
 accordo	chord
 grasso	fat
 felice	glad
-originale	original
+1 originale	original
 quota	share
-stazione	station
-papà	dad
+1 stazione	station
+1 papà	dad
 pane	bread
 carica	charge
 corretto	proper
-bar	bar
 offerta	offer
-segmento	segment
+1 segmento	segment
 schiavo	slave
 anatra	duck
-immediato	instant
+1 immediato	instant
 mercato	market
 grado	degree
 popolare	populate
-pulcino	chick
+pulcino	chick (poultry)
 caro	dear
 nemico	enemy
 rispondere	reply
 bevanda	drink
 verificarsi	occur
-supporto	support
-discorso	speech
-natura	nature
+1 supporto	support
+1 discorso	speech
+1 natura	nature
 gamma	range
-vapore	steam
+1 vapore	steam
 moto	motion
 sentiero	path
-liquido	liquid
-log	log
-significava	meant
+1 liquido	liquid
+1 significava	meant
 quoziente	quotient
-denti	teeth
+1 denti	teeth
 guscio	shell
 collo	neck
 ossigeno	oxygen
 zucchero	sugar
 morte	death
 piuttosto	pretty
-abilità	skill
+1 abilità	skill
 donne	women
 stagione	season
 soluzione	solution
-magnete	magnet
+1 magnete	magnet
 argento	silver
 grazie	thank
 ramo	branch
 partita	match
 suffisso	suffix
-particolarmente	especially
+1 particolarmente	especially
 fico	fig
 impaurito	afraid
-enorme	huge
+1 enorme	huge
 sorella	sister
 acciaio	steel
 discutere	discuss
 avanti	forward
-simile	similar
-guidare	guide
-esperienza	experience
+1 simile	similar
+1 guidare	guide
+1 esperienza	experience
 punteggio	score
 mela	apple
 comprato	bought
 portato	led
 pece	pitch
 cappotto	coat
-massa	mass
+1 massa	mass
 scheda	card
-banda	band
-corda	rope
+1 banda	band
+1 corda	rope
 slittamento	slip
-vittoria	win
+1 vittoria	win
 sognare	dream
 sera	evening
-condizione	condition
+1 condizione	condition
 alimentazione	feed
 strumento	tool
-totale	total
+1 totale	total
 di base	basic
 odore	smell
-valle	valley
+1 valle	valley
 né	nor
 doppio	double
 sedile	seat
-continuare	continue
+1 continuare	continue
 blocco	block
 grafico	chart
 cappello	hat
 vendere	sell
-successo	success
+1 successo	success
 azienda	company
 sottrarre	subtract
-evento	event
-particolare	particular
-affare	deal
+1 evento	event
+1 particolare	particular
+1 affare	deal
 nuoto	swim
-termine	term
+1 termine	term
 opposto	opposite
 moglie	wife
 scarpa	shoe
 spalla	shoulder
-spread	spread
 organizzare	arrange
-campo	camp
-inventare	invent
-cotone	cotton
+1 campo	camp
+1 inventare	invent
+1 cotone	cotton
 nascita	born
-determinare	determine
+1 determinare	determine
 quarto di gallone	quart
 nove	nine
 camion	truck
 rumore	noise
-livello	level
-possibilità	chance
+1 livello	level
+1 possibilità	chance
 raccogliere	gather
 negozio	shop
 tratto	stretch
 gettare	throw
-shine	shine
-proprietà	property
-colonna	column
-molecola	molecule
-selezionare	select
+1 proprietà	property
+1 colonna	column
+1 molecola	molecule
+1 selezionare	select
 sbagliato	wrong
 grigio	gray
-ripetizione	repeat
+1 ripetizione	repeat
 richiedere	require
 ampio	broad
-preparare	prepare
+1 preparare	prepare
 sale	salt
 naso	nose
-plurale	plural
+1 plurale	plural
 rabbia	anger
 richiesta	claim
-continente	continent""".split('\n')
+1 continente	continent""".split('\n')
 
 lst = [l.split('\t') for l in lst]
 for l in lst:
@@ -1012,9 +983,9 @@ def decr():
     return x
 lst = [(a.strip(), b.strip(), decr()) for a,b in lst]
 
-en_to_gr = dict((a,b) for a,b,_ in lst)
-en_nouns = list(en_to_gr.keys())
-gr_nouns = en_to_gr.values()
+en_to_other = dict((a,b) for a,b,_ in lst)
+en_nouns = list(k.lstrip('1 ') for k in en_to_other.keys())
+other_nouns = en_to_other.values()
 
 from collections import defaultdict
 from random import choice, randint, random
@@ -1036,6 +1007,8 @@ class Question:
     def generate(self):
         for _ in range(100):
             tr, w, x = choice(lst)
+            if tr.startswith('1') and random()>0.05:
+                continue
             # if random()>x**2:
             #     continue
             if self.seen[w]==0 or self.total >= self.size:
@@ -1044,6 +1017,8 @@ class Question:
         i = randint(1,3)
         self.total += 1
         self.seen[w] += 1
+        if tr.startswith('1'):
+            tr = tr.split()[1]
         if i==1:
             return (i,w,tr,o2,o3)
         elif i==2:
