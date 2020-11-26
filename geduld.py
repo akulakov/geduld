@@ -13,8 +13,6 @@ import string
 import shelve
 
 import fov
-# from german import Question
-from italian import Question
 
 oprint = print
 
@@ -2287,6 +2285,7 @@ def editor(_map):
 
 
 if __name__ == "__main__":
+    from italian import Question
     argv = sys.argv[1:]
     load_game = None
     for a in argv:
@@ -2296,6 +2295,11 @@ if __name__ == "__main__":
             load_game = a[2:]
         if a and a.startswith('-s'):
             SIZE = int(a[2:])
+        if a == '-gr':
+            from german import Question
+        if a == '-it':
+            from italian import Question
+
     if first(argv) == 'ed':
         editor(argv[1])
     else:
