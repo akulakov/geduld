@@ -999,9 +999,9 @@ class Question:
         i,w,o1,o2,o3 = self.generate()
         return str(i), (
             ' {} -\n'
-            ' 1) {}\n'
-            ' 2) {}\n'
-            ' 3) {}'
+            ' a) {}\n'
+            ' b) {}\n'
+            ' c) {}'
         ).format(w,o1,o2,o3)
 
     def generate(self):
@@ -1020,11 +1020,11 @@ class Question:
         if tr.startswith('1'):
             tr = tr.split()[1]
         if i==1:
-            return (i,w,tr,o2,o3)
+            return ('a',w,tr,o2,o3)
         elif i==2:
-            return (i,w,o2,tr,o3)
+            return ('b',w,o2,tr,o3)
         else:
-            return (i,w,o2,o3,tr)
+            return ('c',w,o2,o3,tr)
 
 if __name__ == "__main__":
     print(Question().render()[1])

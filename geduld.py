@@ -445,6 +445,14 @@ class Board:
         containers, crates, doors, specials = self.load_map(self._map)
     def board_6(self):
         containers, crates, doors, specials = self.load_map(self._map)
+    def board_11(self):
+        containers, crates, doors, specials = self.load_map(self._map)
+    def board_12(self):
+        containers, crates, doors, specials = self.load_map(self._map)
+    def board_13(self):
+        containers, crates, doors, specials = self.load_map(self._map)
+    def board_14(self):
+        containers, crates, doors, specials = self.load_map(self._map)
 
     # -----------------------------------------------------------------------------------------------
     def line(self, a, b):
@@ -1713,11 +1721,24 @@ def main(load_game):
     b6 = Board(Loc(5,MAIN_Y), 6)
     b6.board_6()
 
+    b11 = Board(Loc(0,MAIN_Y+1), 11)
+    b11.board_11()
+
+    b12 = Board(Loc(1,MAIN_Y+1), 12)
+    b12.board_12()
+
+    b13 = Board(Loc(2,MAIN_Y+1), 13)
+    b13.board_13()
+
+    b14 = Board(Loc(3,MAIN_Y+1), 14)
+    b14.board_14()
+
     if DBG:
         player.health = 100
 
     boards[:] = (
-         [b1,b2,b3,b4,b5,b6,None,None,None, None,None, None, None],
+         [b1, b2, b3, b4, b5,  b6,None,None,None, None,None, None, None],
+         [b11,b12,b13,b14,None,None,None,None,None, None,None, None, None],
     )
     B.draw()
 
