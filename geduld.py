@@ -393,7 +393,9 @@ def map_to_board(_map):
 
 
 class Board:
-    def __init__(self, loc, _map):
+    loc = None
+
+    def __init__(self, _map):
         self.B = [mkrow() for _ in range(HEIGHT)]
         self.guards = []
         self.soldiers = []
@@ -403,10 +405,12 @@ class Board:
         self.trigger_locations = {}
         self.misc = []
         self.seen = set()   # seen locations
-        self.loc = loc
         self._map = str(_map)
         self.state = 0
-        map_to_loc[str(_map)] = loc
+
+    def set_loc(self, x, y):
+        self.loc = Loc(x,y)
+        map_to_loc[str(self._map)] = self.loc
 
     def __repr__(self):
         return f'<B: {self._map}>'
@@ -421,7 +425,7 @@ class Board:
             for x, cell in enumerate(row):
                 yield Loc(x,y), cell
 
-    def board_1(self):
+    def board_0_0(self):
         containers, crates, doors, specials = self.load_map(self._map)
         containers[3].add1(ID.key1)
         Item(self, Blocks.platform, 'mobile platform', specials[1], id=ID.platform1)
@@ -432,26 +436,27 @@ class Board:
         BlockingItem(self, rock, '', specials[4], id=ID.stone3, color=gray_col())
         return p
 
-    def board_2(self):
+    def board_0_1(self):
         containers, crates, doors, specials = self.load_map(self._map)
 
-    def board_3(self):
+    def board_0_2(self):
         containers, crates, doors, specials = self.load_map(self._map)
         Eeklo(self, specials[1])
 
-    def board_4(self):
+    def board_0_3(self):
         containers, crates, doors, specials = self.load_map(self._map)
-    def board_5(self):
+    def board_0_4(self):
         containers, crates, doors, specials = self.load_map(self._map)
-    def board_6(self):
+    def board_0_5(self):
         containers, crates, doors, specials = self.load_map(self._map)
-    def board_11(self):
+
+    def board_1_0(self):
         containers, crates, doors, specials = self.load_map(self._map)
-    def board_12(self):
+    def board_1_1(self):
         containers, crates, doors, specials = self.load_map(self._map)
-    def board_13(self):
+    def board_1_2(self):
         containers, crates, doors, specials = self.load_map(self._map)
-    def board_14(self):
+    def board_1_3(self):
         containers, crates, doors, specials = self.load_map(self._map)
 
     # -----------------------------------------------------------------------------------------------
@@ -1704,42 +1709,22 @@ def main(load_game):
     objects[ID.key1] = key1
     objects[ID.key2] = key2
 
-    B = b1 = Board(Loc(0,MAIN_Y), 1)
-    player = b1.board_1()
-    b2 = Board(Loc(1,MAIN_Y), 2)
-    b2.board_2()
+    b1 = Board(1)
+    # if DBG:
+    #     player.health = 100
 
-    b3 = Board(Loc(2,MAIN_Y), 3)
-    b3.board_3()
-
-    b4 = Board(Loc(3,MAIN_Y), 4)
-    b4.board_4()
-
-    b5 = Board(Loc(4,MAIN_Y), 5)
-    b5.board_5()
-
-    b6 = Board(Loc(5,MAIN_Y), 6)
-    b6.board_6()
-
-    b11 = Board(Loc(0,MAIN_Y+1), 11)
-    b11.board_11()
-
-    b12 = Board(Loc(1,MAIN_Y+1), 12)
-    b12.board_12()
-
-    b13 = Board(Loc(2,MAIN_Y+1), 13)
-    b13.board_13()
-
-    b14 = Board(Loc(3,MAIN_Y+1), 14)
-    b14.board_14()
-
-    if DBG:
-        player.health = 100
-
+    B = Board
     boards[:] = (
-         [b1, b2, b3, b4, b5,  b6,None,None,None, None,None, None, None],
-         [b11,b12,b13,b14,None,None,None,None,None, None,None, None, None],
+         [b1,    B(2),  B(3),  B(4),  B(5),  B(6),None,None,None, None,None, None, None],
+         [B(11), B(12), B(13), B(14), None, None,None,None,None, None,None, None, None],
     )
+    for y, row in enumerate(boards):
+        for x, b in enumerate(row):
+            if b:
+                b.set_loc(x, y)
+                getattr(b, f'board_{y}_{x}')()
+    B = b1
+
     B.draw()
 
     win2.addstr(0, 0, '-'*80)
@@ -1763,6 +1748,7 @@ def main(load_game):
     Item(None, Blocks.bottle, 'Bottle of clear water', id=ID.bottle_clear_water)
 
     f = obj_by_attr.ferry
+    player = obj_by_attr.player
     player.add1(ID.key1)
 
     Saves().save(B.loc, 'start')
